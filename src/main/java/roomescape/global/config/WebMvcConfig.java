@@ -27,16 +27,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
         resolvers.add(memberArgumentResolver);
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(logInterceptor)
-                .order(1)
-                .addPathPatterns("/**")
-                .excludePathPatterns("/h2-console", "/js/**", "/image/**", "/css/**");
-
-        registry.addInterceptor(authorizationInterceptor)
-                .order(2)
-                .addPathPatterns("/**")
-                .excludePathPatterns("/h2-console", "/js/**", "/image/**", "/css/**");
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(logInterceptor)
+//                .order(1)
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/h2-console", "/js/**", "/image/**", "/css/**");
+//
+//        registry.addInterceptor(authorizationInterceptor)
+//                .order(2)
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/h2-console", "/js/**", "/image/**", "/css/**");
+//    }
 }
