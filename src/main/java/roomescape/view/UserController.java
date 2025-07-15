@@ -9,6 +9,7 @@ import java.net.URLEncoder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import roomescape.global.auth.Auth;
 import roomescape.member.domain.Role;
 
@@ -41,10 +42,15 @@ public class UserController {
 
     @Auth(Role.GUEST)
     @GetMapping("/")
-    public String index() throws IOException {
+    public String index(
+            @RequestParam(value = "fx", required = false) Long fx,
+            @RequestParam(value = "fy", required = false) Long fy,
+            @RequestParam(value = "tx", required = false) Long tx,
+            @RequestParam(value = "ty", required = false) Long ty
+    ) throws IOException {
         String apiKey = odsay;
 
-        String urlInfo = "https://api.odsay.com/v1/api/searchPubTransPathT?SX=126.9027279&SY=37.5349277&EX=126.9145430&EY=37.5499421&apiKey=" + URLEncoder.encode(apiKey, "UTF-8");
+        String urlInfo = "https://api.odsay.com/v1/api/searchPubTransPathT?SX=" + fx + "&SY=" + fy + "&EX=" + tx + "&EY=" + ty + "&OPT=1&apiKey=" + URLEncoder.encode(apiKey, "UTF-8");
 
         // http 연결
         URL url = new URL(urlInfo);
