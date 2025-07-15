@@ -43,10 +43,10 @@ public class UserController {
     @Auth(Role.GUEST)
     @GetMapping("/")
     public String index(
-            @RequestParam(value = "fx", required = false) Long fx,
-            @RequestParam(value = "fy", required = false) Long fy,
-            @RequestParam(value = "tx", required = false) Long tx,
-            @RequestParam(value = "ty", required = false) Long ty
+            @RequestParam(value = "fx", required = false) Double fx,
+            @RequestParam(value = "fy", required = false) Double fy,
+            @RequestParam(value = "tx", required = false) Double tx,
+            @RequestParam(value = "ty", required = false) Double ty
     ) throws IOException {
         String apiKey = odsay;
 
